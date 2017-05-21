@@ -60,7 +60,68 @@ Wx_RegisterReplyMessage.onTextMsssage = message = >
 
             return res;
         }
+        else if (message.Content == "4")
+        {
+            //post 消息模版
+            var data = new PushTemplateMessage
+            {
+                touser = "xxxx",
+                template_id = "xxxx",
+                url = "http://www.baidu.com",
+                data = new
+                {
+                    first = new { value = "消费成功 !", color = "#173177" },
+                    keynote1 = new { value = "一块巧克力", color = "#173177" },
+                    keynote2 = new { value = "19.80", color = "#e40d0d" },
+                    keynote3 = new { value = DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss"), color = "#173177" },
+                    remark = new { value = "欢迎再次购买", color = "#173177" }
+                }
+            };
+
+            Wx_MessageHandler.pushMessage(data);
+
+            ResponeTextMessage res = new ResponeTextMessage
+            {
+                ToUserName = message.FromUserName,
+                FromUserName = message.ToUserName,
+                Content = "请等待"
+            };
+            return res;
+        }
 }
+```
+
+>菜单按钮注册事件
+```c#
+Wx_RegisterMenuEvent.onMenuClick = (message) =>
+{
+        ResponeTextMessage res = new ResponeTextMessage
+        {
+        ToUserName = message.FromUserName,
+        FromUserName = message.ToUserName,
+        Content = "你点击了 " + message.EventKey
+        };
+        return res;
+};
+
+```
+
+
+>创建菜单
+```c#
+MenuButton menuButton = new MenuButton
+{
+        button = new List<Button>
+        {
+                new Button{name="绑定",type="click",key="one_key_0"},
+                new Button{name="消费记录",sub_button=new List<subButton>{
+                new subButton{ name="查看消费记录1",type="view",url="http://130744c2.nat123.cc/"},
+                new subButton{ name="查看消费记录2",type="click",key="查看消费记录2"}
+        } },
+        new Button{name="我的",type="click",key="我的"},
+        }
+};
+Wx_RegisterCreateMenu.CreatMenu(menuButton);
 ```
 
 

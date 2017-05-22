@@ -9,11 +9,11 @@ using weixin.Utils;
 
 namespace weixin
 {
-    public class Wx
+    public static class Wx
     {
         public static string token = "";
-        private static string appid = "";
-        private static string secret = "";
+        public static string appid = "";
+        public static string secret = "";
         private static string access_token;
         private static DateTime expires_in;
 

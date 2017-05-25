@@ -14,5 +14,9 @@ namespace weixin.WebOauth.Model
         public string refresh_token { get; set; }//用户刷新access_token
         public string openid { get; set; }
         public string scope { get; set; }
+
+        //错误
+        public string errcode { get; set; }
+        public string errmsg { get; set; }
     }
 }

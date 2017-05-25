@@ -8,9 +8,9 @@ using System.Xml.Serialization;
 namespace weixin.Message.Model
 {
     [XmlRoot("xml")]
-    public class ResponeImageMessage : ResponeMessage
+    public class ReplyImageMessage : ReplyMessage
     {
-        public string MsgType = Message.MsgType.Image;
+        public string MsgType = Message.MsgType.image.ToString();
         public resImg Image { get; set; }
     }
 

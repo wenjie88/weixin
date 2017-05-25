@@ -8,9 +8,9 @@ using System.Xml.Serialization;
 namespace weixin.Message.Model
 {
     [XmlRoot("xml")]
-    public class ResponeNewsMessage:ResponeMessage
+    public class ReplyNewsMessage:ReplyMessage
     {
-        public string MsgType = Message.MsgType.news;
+        public string MsgType = "news";
         public int ArticleCount { get; set; }
         [XmlArrayItem("item")]
         public List<Articles> Articles { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace weixin.Message.Model
 {
-    public abstract class ResponeMessage
+    public abstract class ReplyMessage
     {
         public string ToUserName { get; set; }
         public string FromUserName { get; set; }

@@ -4,18 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using weixin.Menu.Model;
+using weixin.Respone;
 using weixin.Utils;
 
-namespace weixin.Menu
+namespace weixin
 {
-    public class Wx_RegisterCreateMenu
+    public class WxMenu
     {
-        public static void CreatMenu(MenuButton MuenButton)
+        public static PostResponeBase CreatMenu(MenuButton MuenButton)
         {
             string access_token = Wx.GetAccessToken();
             string url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token;
             string responeStr = HttpRequsetHelper.Post(url, MuenButton);
-            var s = 0;
+            PostResponeBase res = Newtonsoft.Json.JsonConvert.DeserializeObject<PostResponeBase>(responeStr);
+            return res;
+            
         }
     }
 }

@@ -26,5 +26,9 @@ namespace weixin.WebOauth.Model
         /// 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段。
         /// </summary>
         public string unionid { get; set; }
+
+        //错误
+        public string errcode { get; set; }
+        public string errmsg { get; set; }
     }
 }

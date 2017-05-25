@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace weixin.Message.Model
 {
     [XmlRoot("xml")]
-    public class RequestMessage
+    public class ReceiveMessage
     {
         public string ToUserName { get; set; }
         public string FromUserName { get; set; }

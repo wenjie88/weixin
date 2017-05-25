@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace weixin.Message
 {
-    public class MsgType
+    public enum MsgType
     {
-        public const string Text = "text";
-        public const string Image = "image";
-        public const string voice = "voice";
-        public const string video = "video";
-        public const string music = "music";
-        public const string news = "news";
-        public const string Event = "event";
+        text,
+        image,
+        voice,
+        video,
+        shortvideo,
+        location,
+        link
     }
 }

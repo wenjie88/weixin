@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace weixin.WebOauth
+namespace weixin
 {
-    public class WebOauthHandler
+    public class WxWebOauth
     {
         /// <summary>
         /// 转换url为需要授权后跳转的url
@@ -24,11 +24,11 @@ namespace weixin.WebOauth
         /// <summary>
         /// 通过code换取网页授权access_token
         /// </summary>
-        public static Model.Oauth2 GetWebAccess_Token(string code)
+        public static WebOauth.Model.Oauth2 GetWebAccess_Token(string code)
         {
             string url = $"https://api.weixin.qq.com/sns/oauth2/access_token?appid={Wx.appid}&secret={Wx.secret}&code={code}&grant_type=authorization_code";
-            string respone = weixin.Utils.HttpRequsetHelper.Get(url);
-            Model.Oauth2 oa = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.Oauth2>(respone);
+            string respone = Utils.HttpRequsetHelper.Get(url);
+            WebOauth.Model.Oauth2 oa = Newtonsoft.Json.JsonConvert.DeserializeObject<WebOauth.Model.Oauth2>(respone);
             return oa;
         }
 
@@ -37,12 +37,12 @@ namespace weixin.WebOauth
         /// </summary>
         /// <param name="oa"></param>
         /// <returns></returns>
-        public static Model.WxUser GetWx_user(Model.Oauth2 WebAccess_Token_Oauth2)
+        public static WebOauth.Model.WxUser GetWx_user(WebOauth.Model.Oauth2 WebAccess_Token_Oauth2)
         {
             //拉取用户信息
             string getUserUrl = $"https://api.weixin.qq.com/sns/userinfo?access_token={WebAccess_Token_Oauth2.access_token}&openid={WebAccess_Token_Oauth2.openid}&lang=zh_CN";
-            string responeUser = weixin.Utils.HttpRequsetHelper.Get(getUserUrl);
-            Model.WxUser user = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.WxUser>(responeUser);
+            string responeUser = Utils.HttpRequsetHelper.Get(getUserUrl);
+            WebOauth.Model.WxUser user = Newtonsoft.Json.JsonConvert.DeserializeObject<WebOauth.Model.WxUser>(responeUser);
             return user;
         }
     }

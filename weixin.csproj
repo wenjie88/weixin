@@ -43,24 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu\EventType.cs" />
+    <Compile Include="Material\MaterialManage.cs" />
     <Compile Include="Menu\Model\MenuButton.cs" />
-    <Compile Include="Menu\Wx_RegisterMenuEvent.cs" />
     <Compile Include="Message\Model\PushTemplateMessage.cs" />
+    <Compile Include="Message\ReplyMessageRule.cs" />
+    <Compile Include="Message\Model\ReceiveMessage.cs" />
+    <Compile Include="Message\Model\ReplyImageMessage.cs" />
+    <Compile Include="Message\Model\ReplyMessage.cs" />
+    <Compile Include="Message\Model\ReplyNewsMessage.cs" />
+    <Compile Include="Message\Model\ReplyTextMessage.cs" />
+    <Compile Include="Message\EventType.cs" />
     <Compile Include="Message\MsgType.cs" />
-    <Compile Include="Message\Wx_MessageHandler.cs" />
-    <Compile Include="Message\Wx_RegisterReplyMessage.cs" />
-    <Compile Include="Menu\Wx_RegisterCreateMenu.cs" />
-    <Compile Include="Message\Model\RequestMessage.cs" />
-    <Compile Include="Message\Model\ResponeImageMessage.cs" />
-    <Compile Include="Message\Model\ResponeMessage.cs" />
-    <Compile Include="Message\Model\ResponeNewsMessage.cs" />
-    <Compile Include="Message\Model\ResponeTextMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Respone\PostResponeBase.cs" />
+    <Compile Include="Respone\PushTemplateMsgRespone.cs" />
     <Compile Include="Utils\HttpRequsetHelper.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Utils\XMLHelper.cs" />
+    <Compile Include="WebOauth\Model\Oauth2.cs" />
+    <Compile Include="WebOauth\Model\WxUser.cs" />
     <Compile Include="Wx.cs" />
+    <Compile Include="WxMenu.cs" />
+    <Compile Include="WxMessage.cs" />
+    <Compile Include="WxWebOauth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using weixin.Message;
+using weixin.Message.Model;
 using weixin.Utils;
 
 namespace weixin
@@ -73,10 +75,14 @@ namespace weixin
 
         }
 
+
+       
+
+
     }
 
 
-    public class AccessToken
+    class AccessToken
     {
         public string access_token { get; set; }
         public long expires_in { get; set; }

@@ -11,19 +11,16 @@ Wx.WxConfig(token, appid, secret);
 
 ### 注册一系列微信回复消息
 
-1.所有回复消息的字段都和微信公众号一模一样。
-2.默认情况下，ReplyMessage已经默认赋值MsgType和CreateTime
+1. 所有回复消息的字段都和微信公众号一模一样.
+2. 默认情况下，ReplyMessage已经默认赋值MsgType和CreateTime.
 
 > 注册回复普通消息
 
 > weixin.WxMessage.RegisterReplyMessage(MsgType onMsgType, Func<ReceiveMessage, ReplyMessage> HowToReply)
 
-**
-receiveMsg 为微信服务器发送过来的消息体,包涵所有消息的字段。根据不同的消息类型，有些字段会为空。
-MsgType 为接受到的消息类型 包含 text,image,voice,video,shortvideo,location,link 。注意 event 不包含在MsgType内！
-ReplyMessage 为回复消息的抽象类。子类暂时有：ReplyImageMessage,ReplyTextMessage,ReplyNewsMessage。
-**
-
+* receiveMsg 为微信服务器发送过来的消息体,包涵所有消息的字段。根据不同的消息类型，有些字段会为空。
+* MsgType 为接受到的消息类型 包含 text,image,voice,video,shortvideo,location,link 。注意 event 不包含在MsgType内!
+* ReplyMessage 为回复消息的抽象类。子类暂时有：ReplyImageMessage,ReplyTextMessage,ReplyNewsMessage。 
 
 ```c#
 //响应文字消息，回复文字消息  
@@ -75,13 +72,11 @@ weixin.WxMessage.RegisterReplyMessage(MsgType.text, (receiveMsg) =>
 
 > weixin.WxMessage.RegisterReplyMessage(EventType onEventType, Func<ReceiveMessage, ReplyMessage> HowToReply)
 
-**
-receiveMsg 为微信服务器发送过来的消息体,包涵所有消息的字段。根据不同的消息类型，有些字段会为空。
-onEventType 为接受到的消息类型 基本包含所有事件
-ReplyMessage 为回复消息的抽象类。子类暂时有：ReplyImageMessage,ReplyTextMessage,ReplyNewsMessage。
-**
+* receiveMsg 为微信服务器发送过来的消息体,包涵所有消息的字段。根据不同的消息类型，有些字段会为空。
+* onEventType 为接受到的消息类型 基本包含所有事件
+* ReplyMessage 为回复消息的抽象类。子类暂时有：ReplyImageMessage,ReplyTextMessage,ReplyNewsMessage。
 
-### 菜单按钮注册事件
+### 注册事件
 
 ```c#
 weixin.WxMessage.RegisterReplyMessage(EventType.CLICK, (receiveMsg) =>
@@ -98,6 +93,14 @@ weixin.WxMessage.RegisterReplyMessage(EventType.CLICK, (receiveMsg) =>
 });
 
 ```
+
+
+### 回复消息
+```c#
+//当微信post消息过来时，直接调用次api，可以根据注册了的回复规则来生成出 xml 回复文本.
+string xmlStr = weixin.WxMessage.ReplyMessage(Request.InputStream);
+```
+
 
 
 ### 推送模版消息
@@ -123,9 +126,7 @@ weixin.WxMessage.pushMessage(new PushTemplateMessage
 
 ### 创建菜单
 
-**
-菜单 button 的格式完全遵循微信文档中的格式
-**
+* 菜单 button 的格式完全遵循微信文档中的格式
 
 ```c#
 weixin.WxMenu.CreatMenu(new MenuButton

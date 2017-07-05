@@ -23,6 +23,7 @@ namespace weixin.Message.Model
         //事件
         public string Event { get; set; }
         public string EventKey { get; set; }
+        
     }
     
 }

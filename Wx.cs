@@ -16,6 +16,8 @@ namespace weixin
         public static string token = "";
         public static string appid = "";
         public static string secret = "";
+        public static string EncodingAESKey = "";
+
         private static string access_token;
         private static DateTime expires_in;
 
@@ -25,11 +27,12 @@ namespace weixin
         /// <param name="_token"></param>
         /// <param name="_appid"></param>
         /// <param name="_secret"></param>
-        public static void WxConfig(string _token, string _appid, string _secret)
+        public static void WxConfig(string _token, string _appid, string _secret,string _EncodingAESKey = "")
         {
             token = _token;
             appid = _appid;
             secret = _secret;
+            EncodingAESKey = _EncodingAESKey;
         }
 
         /// <summary>

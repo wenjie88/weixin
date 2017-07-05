@@ -46,7 +46,6 @@
     <Compile Include="Material\MaterialManage.cs" />
     <Compile Include="Menu\Model\MenuButton.cs" />
     <Compile Include="Message\Model\PushTemplateMessage.cs" />
-    <Compile Include="Message\ReplyMessageRule.cs" />
     <Compile Include="Message\Model\ReceiveMessage.cs" />
     <Compile Include="Message\Model\ReplyImageMessage.cs" />
     <Compile Include="Message\Model\ReplyMessage.cs" />
@@ -59,6 +58,9 @@
     <Compile Include="Respone\PushTemplateMsgRespone.cs" />
     <Compile Include="Utils\HttpRequsetHelper.cs" />
     <Compile Include="Utils\Security.cs" />
+    <Compile Include="Utils\Tencent\Cryptography.cs" />
+    <Compile Include="Utils\Tencent\Sample.cs" />
+    <Compile Include="Utils\Tencent\WXBizMsgCrypt.cs" />
     <Compile Include="Utils\XMLHelper.cs" />
     <Compile Include="WebOauth\Model\Oauth2.cs" />
     <Compile Include="WebOauth\Model\WxUser.cs" />
@@ -69,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Utils\Tencent\Readme.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

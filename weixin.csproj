@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respone\PostResponeBase.cs" />
     <Compile Include="Respone\PushTemplateMsgRespone.cs" />
+    <Compile Include="Respone\UserRespone.cs" />
     <Compile Include="Utils\HttpRequsetHelper.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Utils\Tencent\Cryptography.cs" />

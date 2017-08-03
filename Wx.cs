@@ -89,19 +89,19 @@ namespace weixin
             if (result.count < 0)
                 return null;
 
-            List<string> openidList = new List<string>();
-            openidList.AddRange(result.data.openid);
+            //List<string> openidList = new List<string>();
+            //openidList.AddRange(result.data.openid);
 
-            bool hasnext = result.next_openid != null;
-            while (hasnext)
-            {
-                string _re = HttpRequsetHelper.Get($"https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid={result.next_openid}");
-                UserRespone _result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserRespone>(res);
-                openidList.AddRange(_result.data.openid);
-                hasnext = _result.next_openid != null;
-            }
+            //bool hasnext = result.next_openid != null;
+            //while (hasnext)
+            //{
+            //    string _re = HttpRequsetHelper.Get($"https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid={result.next_openid}");
+            //    UserRespone _result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserRespone>(res);
+            //    openidList.AddRange(_result.data.openid);
+            //    hasnext = _result.next_openid != null;
+            //}
 
-            return openidList;
+            return result.data.openid;
         }
 
 

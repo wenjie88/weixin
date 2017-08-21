@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,23 +45,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Material\MaterialManage.cs" />
-    <Compile Include="Menu\Model\MenuButton.cs" />
+    <Compile Include="Menu\Model\WxMenuButton.cs" />
+    <Compile Include="Message\IWxEvent.cs" />
     <Compile Include="Message\Model\PushTemplateMessage.cs" />
     <Compile Include="Message\Model\ReceiveMessage.cs" />
     <Compile Include="Message\Model\ReplyImageMessage.cs" />
-    <Compile Include="Message\Model\ReplyMessage.cs" />
+    <Compile Include="Message\Model\ReplyBaseMessage.cs" />
     <Compile Include="Message\Model\ReplyNewsMessage.cs" />
     <Compile Include="Message\Model\ReplyTextMessage.cs" />
     <Compile Include="Message\EventType.cs" />
     <Compile Include="Message\MsgType.cs" />
+    <Compile Include="Message\WxMessageBaseHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respone\PostResponeBase.cs" />
     <Compile Include="Respone\PushTemplateMsgRespone.cs" />
     <Compile Include="Respone\UserRespone.cs" />
+    <Compile Include="Utils\CacheHelper.cs" />
     <Compile Include="Utils\HttpRequsetHelper.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Utils\Tencent\Cryptography.cs" />
-    <Compile Include="Utils\Tencent\Sample.cs" />
     <Compile Include="Utils\Tencent\WXBizMsgCrypt.cs" />
     <Compile Include="Utils\XMLHelper.cs" />
     <Compile Include="WebOauth\Model\Oauth2.cs" />

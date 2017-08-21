@@ -13,7 +13,7 @@ namespace weixin.WebOauth.Model
         /// <summary>
         /// 用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
         /// </summary>
-        public string sex { get; set; }
+        public int sex { get; set; }
         public string province { get; set; }
         public string city { get; set; }
         public string country { get; set; }

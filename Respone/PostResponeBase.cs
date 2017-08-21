@@ -8,7 +8,7 @@ namespace weixin.Respone
 {
     public class PostResponeBase
     {
-        public string errcode { get; set; }
+        public int errcode { get; set; }
         public string errmsg { get; set; }
     }
 }

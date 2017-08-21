@@ -8,9 +8,9 @@ using System.Xml.Serialization;
 namespace weixin.Message.Model
 {
     [XmlRoot("xml")]
-    public class ReplyTextMessage : ReplyMessage
+    public class ReplyTextMessage : ReplyBaseMessage
     {
-        public string MsgType = Message.MsgType.text.ToString();
+        public string MsgType = "text";
         public string Content { get; set; }
     }
 }

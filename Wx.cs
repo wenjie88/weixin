@@ -81,28 +81,29 @@ namespace weixin
 
 
 
-        public static List<string> GetUserList()
-        {
-            string res = HttpRequsetHelper.Get($"https://api.weixin.qq.com/cgi-bin/user/get?access_token={GetAccessToken()}");
-            UserRespone result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserRespone>(res);
+        //public static List<string> GetUserList()
+        //{
+        //    string res = HttpRequsetHelper.Get($"https://api.weixin.qq.com/cgi-bin/user/get?access_token={GetAccessToken()}");
+        //    UserRespone result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserRespone>(res);
 
-            if (result.count < 0)
-                return null;
+        //    if (result.count < 0)
+        //        return null;
 
-            List<string> openidList = new List<string>();
-            openidList.AddRange(result.data.openid);
 
-            bool hasnext = result.next_openid != null;
-            while (hasnext)
-            {
-                string _re = HttpRequsetHelper.Get($"https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid={result.next_openid}");
-                UserRespone _result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserRespone>(res);
-                openidList.AddRange(_result.data.openid);
-                hasnext = _result.next_openid != null;
-            }
+        //    //int total = result.total;
+        //    //int count = result.count;
 
-            return openidList;
-        }
+        //    //bool hasnext = total > count;
+        //    //while (hasnext)
+        //    //{
+        //    //    string _re = HttpRequsetHelper.Get($"https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid={result.next_openid}");
+        //    //    UserRespone _result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserRespone>(res);
+        //    //    openidList.AddRange(_result.data.openid);
+        //    //    hasnext = result.total > (result.count + count);
+        //    //}
+
+        //    return result.data.openid;
+        //}
 
 
     }

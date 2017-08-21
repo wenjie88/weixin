@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace weixin.Message.Model
 {
     [XmlRoot("xml")]
-    public class ReplyNewsMessage:ReplyMessage
+    public class ReplyNewsMessage:ReplyBaseMessage
     {
         public string MsgType = "news";
         public int ArticleCount { get; set; }

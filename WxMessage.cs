@@ -98,7 +98,7 @@ namespace weixin
             {
                 if (CacheHelper.GetCache(receiveMsg.MsgId) != null)
                     return "";
-                CacheHelper.SetCache(receiveMsg.MsgId, "xx", new TimeSpan(0, 0, 1, 0));
+                CacheHelper.SetCache(receiveMsg.FromUserName+receiveMsg.CreateTime, "xx", new TimeSpan(0, 0, 1, 0));
             }
 
 

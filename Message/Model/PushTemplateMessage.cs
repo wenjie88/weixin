@@ -8,9 +8,9 @@ namespace weixin.Message.Model
 {
     public class PushTemplateMessage
     {
-        public string touser { get; set; }
+        public string touser { get; set; }//openid
         public string template_id { get; set; }
-        public string url { get; set; }
+        public string url { get; set; }//跳转url
         public dynamic data { get; set; }
     }
 }

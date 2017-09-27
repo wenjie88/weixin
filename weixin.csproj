@@ -58,11 +58,13 @@
     <Compile Include="Message\WxMessageBaseHandler.cs" />
     <Compile Include="Model\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QRCode\QRCode_ActionName.cs" />
     <Compile Include="Respone\PostResponeBase.cs" />
     <Compile Include="Respone\PushTemplateMsgRespone.cs" />
     <Compile Include="Respone\UserRespone.cs" />
     <Compile Include="Utils\CacheHelper.cs" />
     <Compile Include="Utils\HttpRequsetHelper.cs" />
+    <Compile Include="Utils\HttpService.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Utils\Tencent\Cryptography.cs" />
     <Compile Include="Utils\Tencent\WXBizMsgCrypt.cs" />
@@ -72,6 +74,12 @@
     <Compile Include="Wx.cs" />
     <Compile Include="WxMenu.cs" />
     <Compile Include="WxMessage.cs" />
+    <Compile Include="WxPay\JsApiPay.cs" />
+    <Compile Include="WxPay\lib\PayApi.cs" />
+    <Compile Include="WxPay\lib\WxPayData.cs" />
+    <Compile Include="WxPay\model\WxPayQueryResult.cs" />
+    <Compile Include="WxPay\ResultNotify.cs" />
+    <Compile Include="WxQRCode.cs" />
     <Compile Include="WxUser.cs" />
     <Compile Include="WxWebOauth.cs" />
   </ItemGroup>

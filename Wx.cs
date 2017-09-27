@@ -19,6 +19,18 @@ namespace weixin
         public static string secret = "";
         public static string EncodingAESKey = "";
 
+        //WxPay
+        public static string KEY = "";
+        public static string mch_id = "";
+        public static string IP = "0.0.0.0";
+        public static string NOTIFY_URL = "";
+        //=======【证书路径设置】===================================== 
+        /* 证书路径,注意应该填写绝对路径（仅退款、撤销订单时需要）
+        */
+        public static string SSLCERT_PATH = "";
+        public static string SSLCERT_PASSWORD = "";
+
+
         private static string access_token;
         private static DateTime expires_in;
 
@@ -28,13 +40,25 @@ namespace weixin
         /// <param name="_token"></param>
         /// <param name="_appid"></param>
         /// <param name="_secret"></param>
-        public static void WxConfig(string _token, string _appid, string _secret,string _EncodingAESKey = "")
+        public static void WxConfig(string _token, string _appid, string _secret, string _EncodingAESKey = "")
         {
             token = _token;
             appid = _appid;
             secret = _secret;
             EncodingAESKey = _EncodingAESKey;
         }
+
+
+        public static void WxConfigWxPay(string _KEY, string _mch_id, string _IP, string _NOTIFY_URL, string _SSLCERT_PATH, string _SSLCERT_PASSWORD)
+        {
+            KEY = _KEY;
+            mch_id = _mch_id;
+            IP = _IP;
+            NOTIFY_URL = _NOTIFY_URL;
+            SSLCERT_PATH = _SSLCERT_PATH;
+            SSLCERT_PASSWORD = _SSLCERT_PASSWORD;
+        }
+
 
         /// <summary>
         /// 验证微信服务器消息

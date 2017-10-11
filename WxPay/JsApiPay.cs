@@ -22,8 +22,10 @@ namespace weixin.WxPay
         /// <param name="OpenId"></param>
         /// <param name="out_trade_no"></param>
         /// <param name="total_fee">单位 分</param>
+        /// <param name="time_expire">超时时间  yyyyMMddHHmmss</param>
+        /// <param name="attach">自定义数据包 </param>
         /// <returns></returns>
-        public WxPayData GetUnifiedOrderResult(string OpenId, string out_trade_no, int total_fee,string body, string attach= null)
+        public WxPayData GetUnifiedOrderResult(string OpenId, string out_trade_no, int total_fee, string body, string time_expire, string attach = null)
         {
             WxPayData data = new WxPayData();
             data.SetValue("body", body);
@@ -33,13 +35,15 @@ namespace weixin.WxPay
             data.SetValue("trade_type", "JSAPI");
             data.SetValue("openid", OpenId);
             data.SetValue("device_info", "WEB");
+            data.SetValue("time_start", DateTime.Now.ToString("yyyyMMddHHmmss"));
+            data.SetValue("time_expire", time_expire);
             //data.SetValue("product_id", ProductId);
 
 
             //调用接口
             WxPayData result = PayApi.UnifiedOrder(data);
 
-       
+
 
             this.unifiedOrderResult = result;
             return result;
@@ -132,7 +136,7 @@ namespace weixin.WxPay
 
                 return result;
             }
-            
+
         }
 
 
@@ -178,7 +182,7 @@ namespace weixin.WxPay
         public static WxPayQueryResult QueryOrder(string transaction_id = null, string out_trade_no = null)
         {
             WxPayData req = new WxPayData();
-            if(!String.IsNullOrEmpty(transaction_id))
+            if (!String.IsNullOrEmpty(transaction_id))
                 req.SetValue("transaction_id", transaction_id);
             if (!String.IsNullOrEmpty(out_trade_no))
                 req.SetValue("out_trade_no", out_trade_no);
@@ -211,7 +215,7 @@ namespace weixin.WxPay
          * @param refund_desc 退款原因 (80个字符)
          * @return 退款结果（）
          */
-        public static WxPayData Refund(string transaction_id, string out_trade_no, int total_fee, int refund_fee, string OutTradeNo,string refund_desc)
+        public static WxPayData Refund(string transaction_id, string out_trade_no, int total_fee, int refund_fee, string OutTradeNo, string refund_desc)
         {
             WxPayData data = new WxPayData();
             if (!string.IsNullOrEmpty(transaction_id))//微信订单号存在的条件下，则已微信订单号为准
@@ -270,13 +274,32 @@ namespace weixin.WxPay
             }
 
             WxPayData result = PayApi.RefundQuery(data);//提交退款查询给API，接收返回数据
-            
-            
+
+
             return result;
         }
 
 
 
 
+
+
+
+
+        /***
+       * 关闭订单
+       * 订单生成后不能马上调用关单接口，最短调用时间间隔为5分钟。
+       * @param out_trade_no 商户订单号
+       * @return 退款查询结果（xml格式）
+       */
+        public static WxPayCloseOrderResult CloseOrder(string out_trade_no)
+        {
+            WxPayData data = new WxPayData();
+            data.SetValue("out_trade_no", out_trade_no);//商户订单号去退款
+            
+            WxPayData result = PayApi.CloseOrder(data);
+            WxPayCloseOrderResult CloseResult = new WxPayCloseOrderResult(result);
+            return CloseResult;
+        }
     }
 }

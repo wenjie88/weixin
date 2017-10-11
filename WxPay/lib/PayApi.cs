@@ -52,8 +52,6 @@ namespace weixin.WxPay.lib
             inputObj.SetValue("notify_url", Wx.NOTIFY_URL);
             inputObj.SetValue("spbill_create_ip", Wx.IP);
             inputObj.SetValue("nonce_str", GenerateNonceStr());
-            inputObj.SetValue("time_start", DateTime.Now.ToString("yyyyMMddHHmmss"));
-            inputObj.SetValue("time_expire", DateTime.Now.AddMinutes(10).ToString("yyyyMMddHHmmss"));
             inputObj.SetValue("sign", inputObj.MakeSign());
 
             string xml = inputObj.ToXml();
@@ -204,6 +202,47 @@ namespace weixin.WxPay.lib
             return result;
         }
 
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 关闭订单
+        /// 注意：订单生成后不能马上调用关单接口，最短调用时间间隔为5分钟。
+        /// </summary>
+        /// <param name="inputObj"></param>
+        /// <param name="timeOut"></param>
+        /// <returns></returns>
+        public static WxPayData CloseOrder(WxPayData inputObj, int timeOut = 6)
+        {
+            string url = "https://api.mch.weixin.qq.com/pay/closeorder";
+            //检测必填参数
+            if (!inputObj.IsSet("out_trade_no"))
+            {
+                throw new Exception("关闭订单接口中，out_trade_no参数必填！");
+            }
+
+            inputObj.SetValue("appid", Wx.appid);//公众账号ID
+            inputObj.SetValue("mch_id", Wx.mch_id);//商户号
+            inputObj.SetValue("nonce_str", GenerateNonceStr());//随机字符串
+            inputObj.SetValue("sign", inputObj.MakeSign());//签名
+
+
+            string xml = inputObj.ToXml();
+            string response = HttpService.Post(xml, url, false, timeOut);//调用HTTP通信接口以提交数据到API
+
+            //将xml格式的结果转换为对象以返回
+            WxPayData result = new WxPayData();
+            result.FromXml(response);
+
+            return result;
+        }
 
 
 

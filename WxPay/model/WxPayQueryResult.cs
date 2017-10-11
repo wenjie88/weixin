@@ -42,6 +42,7 @@ namespace weixin.WxPay.model
         public string trade_type { get; set; }//调用接口提交的交易类型，取值如下：JSAPI，NATIVE，APP，MICROPAY
 
         public string trade_state { get; set; }
+        public string trade_state_desc { get; set; }
 
         public string bank_type { get; set; }
 
@@ -62,6 +63,7 @@ namespace weixin.WxPay.model
         public string time_end { get; set; }//20141030133525
 
 
+        public WxPayQueryResult() { }
 
         public WxPayQueryResult(WxPayData Data)
         {
@@ -96,6 +98,7 @@ namespace weixin.WxPay.model
                     transaction_id = Data.GetValue("transaction_id")?.ToString();
                     time_end = Data.GetValue("time_end")?.ToString();
                     attach = Data.GetValue("attach")?.ToString();
+                    trade_state_desc = Data.GetValue("trade_state_desc")?.ToString();
                 }
             }
 

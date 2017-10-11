@@ -77,6 +77,7 @@
     <Compile Include="WxPay\JsApiPay.cs" />
     <Compile Include="WxPay\lib\PayApi.cs" />
     <Compile Include="WxPay\lib\WxPayData.cs" />
+    <Compile Include="WxPay\model\WxPayCloseOrderResult.cs" />
     <Compile Include="WxPay\model\WxPayQueryResult.cs" />
     <Compile Include="WxPay\ResultNotify.cs" />
     <Compile Include="WxQRCode.cs" />
